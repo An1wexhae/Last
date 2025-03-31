@@ -191,20 +191,20 @@
             document.getElementById("customPopup").style.display = "none";
         }
 
-              // Fetch JSON and Load JW Player
-        fetch("https://content.jwplatform.com/libraries/SAHhwvZq.js") // Replace with actual hosted JSON URL
-            .then(response => response.json())
-            .then(data => {
-                jwplayer("jwplayerDiv").setup({
-                    file: data.stream_url,
-                    autostart: true,
-                    width: "100%",
-                    height: "100%",
-                    stretching: "uniform"
-                });
-            })
-            .catch(error => console.error("Error loading JSON:", error));
-    </script>
-
-</body>
-</html>  
+             jwplayer("jwplayerDiv").setup({ 
+      file: "https://aba72ykaaaaaaaamohrx4tcd2w6ml.b3b8744990604286a134fa727967d0bd.emt.cf.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/gp5sdzsk3h/out/v1/9e91d5f5a95e4942a41d81bd015d2bdf/cenc.mpd  ", 
+      position: 'bottom', 
+      autostart: true, 
+      stretching: "uniform", 
+      width: "100%", 
+      type: "dash", 
+      drm: { 
+        clearkey: { 
+          keyId: "cc153ec885a0e57697939142cd1bcea7", 
+          key: "b19ad1ce9bef24511c22f403adf7f61e" 
+        } 
+      } 
+    }); 
+  </script> 
+</body> 
+</html>
