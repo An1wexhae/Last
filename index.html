@@ -21,31 +21,63 @@
             border-radius: 8px;
             background: black;
         }
-        .telegram-button {
-            display: inline-block;
-            margin-top: 20px;
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+            display: none;
+            text-align: center;
+        }
+        .popup button {
+            margin: 10px;
             padding: 10px 20px;
             font-size: 16px;
-            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .join-button {
             background: #0088cc;
-            text-decoration: none;
+            color: white;
             border-radius: 5px;
         }
-        .telegram-button:hover {
-            background: #005f8a;
+        .cancel-button {
+            background: #cc0000;
+            color: white;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
     <h1>Aniwesh Live Link</h1>
+    <div id="popup" class="popup">
+        <p>Join our Telegram Channel for updates!</p>
+        <button class="join-button" onclick="joinTelegram()">Join</button>
+        <button class="cancel-button" onclick="closePopup()">Cancel</button>
+    </div>
     <video id="video" controls></video>
-    <br>
-    <a href="https://t.me/aniweshstorage" class="telegram-button" target="_blank">Join My Telegram Channel</a>
     
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('popup').style.display = 'block';
+        });
+        
+        function joinTelegram() {
+            window.location.href = "https://t.me/aniweshstorage";
+        }
+        
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            playStream();
+        }
+        
+        function playStream() {
             const video = document.getElementById('video');
-            const streamUrl = "https://stream-akamai.castr.com/5b9352dbda7b8c769937e459/live_2361c920455111ea85db6911fe397b9e/index.fmp4.m3u8"; // Set your M3U8 link here
+            const streamUrl = "https://stream-akamai.castr.com/5b9352dbda7b8c769937e459/live_2361c920455111ea85db6911fe397b9e/index.fmp4.m3u8";
             
             if (Hls.isSupported()) {
                 const hls = new Hls();
@@ -60,7 +92,7 @@
             } else {
                 alert("Your browser does not support M3U8 streaming.");
             }
-        });
+        }
     </script>
 </body>
 </html>
