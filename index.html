@@ -20,6 +20,7 @@
             border: 2px solid #333;
             border-radius: 8px;
             background: black;
+            display: none;
         }
         .popup {
             position: fixed;
@@ -30,7 +31,6 @@
             padding: 20px;
             border-radius: 8px;
             color: white;
-            display: none;
             text-align: center;
         }
         .popup button {
@@ -72,6 +72,7 @@
         
         function closePopup() {
             document.getElementById('popup').style.display = 'none';
+            document.getElementById('video').style.display = 'block';
             playStream();
         }
         
